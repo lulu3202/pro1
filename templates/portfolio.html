@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Portfolio{% endblock %}
+
+{% block content %}
+
+    <section>
+        <h1>Portfolio</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae quidem beatae soluta ea incidunt. Quidem odit sequi enim similique, quisquam maiores, suscipit consequatur voluptatum in perspiciatis, mollitia fugit? Incidunt aliquam nihil esse consequuntur perspiciatis inventore corporis, iure numquam labore placeat minus? Minima laudantium doloremque et ipsa fugiat nesciunt mollitia dolorum!</p>
+    </section>
+
+    <section class="projects">
+        <h1>Projects</h1>
+        {% for project in projects %}
+            <div class="project">
+                <h2><a href="portfolio/{{ project.endpoint }}">{{ project.name }}</a></h2>
+                <p>{{ project.description }}</p>
+            </div>
+        {% endfor %}
+    </section>    
+    
+{% endblock %}
+
+
+
+
+
+
+    
