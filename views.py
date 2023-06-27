@@ -1,18 +1,19 @@
+"""This code imports necessary modules from Flask, including Blueprint, render_template, request, jsonify, redirect, and url_for. It then creates a Blueprint named "main", which is a way to organize routes and views in Flask."""
+
 from flask import Blueprint, render_template, request, jsonify, redirect, url_for
 
 main = Blueprint("main", __name__)
 
+
 @main.route("/")
 def home():
-    country = request.args.get("country")
-    source = request.args.get("source")  
-    return render_template("index.html", country=country, source=source)
+    return render_template("index.html")
 
 @main.route("/about")
 def about():
     context = {
-        "name": "Shubham",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quisquam provident consectetur expedita quaerat odit sit voluptates laborum debitis est laboriosam corrupti ratione, aperiam, sed odio cumque quas dolor esse pariatur voluptatem, placeat eum vitae. Eum maxime et, amet itaque aliquam incidunt qui magnam id officia voluptate sequi quidem ut. Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quisquam provident consectetur expedita quaerat odit sit voluptates laborum debitis est laboriosam corrupti ratione, aperiam, sed odio cumque quas dolor esse pariatur voluptatem, placeat eum vitae. Eum maxime et, amet itaque aliquam incidunt qui magnam id officia voluptate sequi quidem ut!",
+        "name": "Devi",
+        "description": "Adpative. Energetic.  Verstile Product Program Manager. itae. Eum maxime et, amet itaque aliquam incidunt qui magnam id officia voluptate sequi quidem ut. Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quisquam provident consectetur expedita quaerat odit sit voluptates laborum debitis est laboriosam corrupti ratione, aperiam, sed odio cumque quas dolor esse pariatur voluptatem, placeat eum vitae. Eum maxime et, amet itaque aliquam incidunt qui magnam id officia voluptate sequi quidem ut!",
     }
     return render_template("about.html", context=context)
 
@@ -29,12 +30,13 @@ def portfolio():
     projects_list = [
         {'name': 'Taskmate', 'description': 'This is the first project.', 'endpoint': 'taskmate'},
         {'name': 'Codebook', 'description': 'This is the second project.', 'endpoint': 'codebook'},
+        {'name': 'Codebook1', 'description': 'This is the third project.', 'endpoint': 'codebook1'}
     ]
     return render_template("portfolio.html", projects=projects_list)
 
 @main.route("/portfolio/<project>")
 def project(project):
-    projects_lst = ["taskmate", "codebook"]
+    projects_lst = ["taskmate", "codebook", "codebook1"]
     if project in projects_lst:
         return render_template(f"portfolio/{project}.html")
     else:
@@ -52,7 +54,13 @@ def portfolio_json():
             "langauge": "javascript",
             "framework": "react",
             "status": "learning"
+        },
+        "codebook1": {
+            "langauge": "javascript",
+            "framework": "react",
+            "status": "learning"
         }
+
     }
     return jsonify(projects)
     
