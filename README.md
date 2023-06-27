@@ -1,0 +1,1 @@
+Created this portfolio as part of Udemy's "Python A-Z: Learn Python By Building 15 15 projects & Chatgpt" by Shubam Sarda. I cloned the project to my local directory, used chatgpt to understand code snippets and modified it to create my website. 
